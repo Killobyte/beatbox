@@ -1,20 +1,22 @@
-package com.beatbox;
+package com.beatbox.lib.song;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Song {
-	private String title;
-	private String artist;
+	protected String title;
+	protected String artist;
+	protected String path;
 
 	public Song() {
 		title = "";
 		artist = "";
 	}
 
-	public Song(String title, String artist) {
+	public Song(String title, String artist, String path) {
 		this.title = title;
 		this.artist = artist;
+		this.path = path;
 	}
 
 	public void setTitle(String title) {
@@ -31,6 +33,14 @@ public class Song {
 
 	public String getArtist() {
 		return artist;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public String getPath() {
+		return path;
 	}
 
 	public JSONObject toJSON() {
