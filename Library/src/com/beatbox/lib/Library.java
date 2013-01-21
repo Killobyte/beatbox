@@ -9,6 +9,10 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.beatbox.lib.song.Song;
 import com.beatbox.lib.song.SongFactory;
 
@@ -49,5 +53,21 @@ public class Library {
 
 	public List<Song> getSongs(String artist) {
 		return library.get(artist);
+	}
+
+	public JSONObject toJSONObject() {
+		JSONObject lib = new JSONObject();
+		for (String artist : getArtists()) {
+			JSONArray songs = new JSONArray();
+			for (Song song : getSongs(artist)) {
+				songs.put(song.toJSONObject());
+			}
+			try {
+				lib.put(artist, songs);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		return lib;
 	}
 }

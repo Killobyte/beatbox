@@ -43,7 +43,7 @@ public class Song {
 		return path;
 	}
 
-	public JSONObject toJSON() {
+	public JSONObject toJSONObject() {
 		JSONObject song = new JSONObject();
 		try {
 			song.put("title", title);
