@@ -1,4 +1,3 @@
-beatbox
-=======
+See my ideas in the google doc.
 
-Beat box home jukebox
+Add comments for discussion
